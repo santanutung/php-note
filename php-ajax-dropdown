@@ -52,3 +52,39 @@
 
 
          });
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         //  var select1 = $('#subservice_id')
+         //  var select2 = $('#select2')
+         //  var options = select2.find('option')
+
+         //  select1.on('change', function() {
+         //      select2.html(options.filter('[value="' + this.value + '"]'));
+         //      $('#select2').select2();
+
+         //  }).trigger('change');
+
+
+         //  select1.on('change', function() {
+         //      b = $("#subservice_id option:selected").data("subsubserviceid")
+         //      $("#subsubserviceid").val(b);
+         //  })
+
+         //  select2.on('change', function() {
+
+         //      b = $("#select2 option:selected").data("subsubserviceid")
+         //      $("#subsubserviceid").val(b);
+
+
+         //  })
