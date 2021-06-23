@@ -1,0 +1,54 @@
+ <select class="form-control validate[required]" id="subservice_id" name="subservice_id" required>
+        <option value="">select_services</option>
+  </select>
+  
+ 
+             
+  <select class="form-control validate[required]" name="subsubcategory[]" id="subsubcategory"> </select>
+     
+     
+      <script type="text/javascript">
+         $.ajaxSetup({
+             headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             }
+         });
+         $(document).ready(function() {
+             $('#subservice_id').on('change', function(e) {
+                 var cat_id = e.target.value;
+                 $.ajax({
+                     url: "{{ route('subcat') }}",
+                     type: "POST",
+                     data: {
+                         cat_id: cat_id
+                     },
+                     success: function(data) {
+                         $('#subsubcategory').empty();
+                         console.log(data.subsubcategories);
+
+
+                         $.each(data.subsubcategories, function(index,
+                             subsubcategory) {
+                             $('#subsubcategory').append('<option value="' +
+                                 subsubcategory
+                                 .subsub_id + '">' + subsubcategory.subsub_name +
+                                 '</option>');
+                         })
+
+                         $('#subsubcategory').select2();
+                        <?php if (!$editid){
+                            ?>
+                             $("#subsubcategory").attr("multiple", "multiple");
+                     <?php
+                        }
+                        ?>
+
+
+
+                     }
+                 })
+             });
+
+
+
+         });
